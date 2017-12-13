@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import actionCreators from '../actions/content';
@@ -15,12 +16,13 @@ class App extends Component {
 	}
 
 	render() {
+		const {setGreeting, greeting} = this.props;
 		return (
 			<div className={'app'}>
-				<button onClick={() => this.props.setGreeting('Hello asshole')}>
+				<button onClick={() => setGreeting('Hello asshole')}>
 					Change greeting
 				</button>
-				<p>{this.props.greeting}</p>
+				<p>{greeting}</p>
 			</div>
 		)
 	}
@@ -34,10 +36,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	const contentActions = bindActionCreators(actionCreators, dispatch);
-	console.log(contentActions);
 	return {
 		setGreeting: contentActions.setGreeting
 	}
+};
+
+App.propTypes = {
+	greeting: PropTypes.string.isRequired,
+	setGreeting: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
