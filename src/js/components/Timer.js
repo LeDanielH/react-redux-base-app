@@ -7,24 +7,20 @@ import '../../sass/project/components/_timer.scss';
 
 class Timer extends Component {
 
-	constructor(props) {
-		super(props);
-		this.handleOnChange = this.handleOnChange.bind(this);
-	}
-
 	componentDidMount() {
 		this.interval = setInterval(() => {
 			this.props.setTime(new Date().toLocaleTimeString())
 		}, 1000)
 	}
 
+	// intervals must always be stopped when component unmounted
 	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
 
-	handleOnChange(event) {
+	handleOnChange = (event) => {
 		return event.target.value
-	}
+	};
 
 	render() {
 		const {time} = this.props;
