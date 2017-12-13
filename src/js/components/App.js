@@ -1,20 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import actionCreators from '../actions/content';
 import Timer from './Timer';
+import Form from './Form';
 import '../../sass/project/components/_app.scss';
 
 
 const App = (props) => {
-	const {setGreeting, greeting} = props;
 	return (
 		<div className={'app'}>
-			<button onClick={() => setGreeting('Hello asshole')}>
-				Change greeting
-			</button>
-			<p>{greeting}</p>
+			<h1>{`Hello ${props.name}!`}</h1>
+			<Form />
 			<Timer />
 		</div>
 	)
@@ -22,20 +18,14 @@ const App = (props) => {
 
 const mapStateToProps = state => {
 	return {
-		greeting: state.greeting
+		name: state.name
 	}
 };
 
 const mapDispatchToProps = dispatch => {
-	const contentActions = bindActionCreators(actionCreators, dispatch);
-	return {
-		setGreeting: contentActions.setGreeting
-	}
+	return {}
 };
 
-App.propTypes = {
-	greeting: PropTypes.string.isRequired,
-	setGreeting: PropTypes.func.isRequired
-};
+App.propTypes = {name: PropTypes.string.isRequired};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

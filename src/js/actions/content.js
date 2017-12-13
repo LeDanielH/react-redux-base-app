@@ -1,10 +1,10 @@
 import actions from '../config/actions';
 
-const _setGreeting = greeting => {
+const _setName = name => {
 	return {
-		type: actions.content.setGreeting,
+		type: actions.content.setName,
 		payload: {
-			greeting
+			name
 		}
 	}
 };
@@ -18,9 +18,9 @@ const _setTime = time => {
 	}
 };
 
-const setGreeting = greeting => {
+const setName = name => {
 	return (dispatch, getState) => {
-		dispatch(_setGreeting(greeting))
+		dispatch(_setName(name))
 	}
 };
 
@@ -31,6 +31,6 @@ const setTime = time => {
 };
 
 export default {
-	setGreeting,
+	setName,
 	setTime
 }

@@ -1,16 +1,16 @@
 import actions from '../config/actions';
 
 const initialState = {
-	greeting: 'Hello world',
+	name: 'Asshole',
 	time: new Date().toLocaleTimeString()
 };
 
 const content = (state = initialState, action) => {
 	switch (action.type) {
 
-		case actions.content.setGreeting:
+		case actions.content.setName:
 			return Object.assign({}, state, {
-				greeting: action.payload.greeting
+				name: action.payload.name
 			});
 
 		case actions.content.setTime:
