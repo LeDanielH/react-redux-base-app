@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import actionCreators from '../actions/content';
-
+import Timer from './Timer';
 import '../../sass/project/components/_app.scss';
 
 class App extends Component {
 
 	constructor() {
 		super();
-		this.state = {
-			ready: true
-		};
 	}
 
 	render() {
@@ -23,6 +20,7 @@ class App extends Component {
 					Change greeting
 				</button>
 				<p>{greeting}</p>
+				<Timer />
 			</div>
 		)
 	}
