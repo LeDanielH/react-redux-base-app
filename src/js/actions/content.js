@@ -9,12 +9,28 @@ const _setGreeting = greeting => {
 	}
 };
 
-const setGreeting = (greeting) => {
+const _setTime = time => {
+	return {
+		type: actions.content.setTime,
+		payload: {
+			time
+		}
+	}
+};
+
+const setGreeting = greeting => {
 	return (dispatch, getState) => {
 		dispatch(_setGreeting(greeting))
 	}
 };
 
+const setTime = time => {
+	return (dispatch, getState) => {
+		dispatch(_setTime(time))
+	}
+};
+
 export default {
-	setGreeting
+	setGreeting,
+	setTime
 }

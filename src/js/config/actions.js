@@ -1,6 +1,7 @@
 const actions = {
 	content: {
-		setGreeting: 'SET_GREETING'
+		setGreeting: 'SET_GREETING',
+		setTime: 'SET_TIME'
 	}
 };
 

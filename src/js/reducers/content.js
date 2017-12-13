@@ -1,7 +1,8 @@
 import actions from '../config/actions';
 
 const initialState = {
-	greeting: 'Hello world'
+	greeting: 'Hello world',
+	time: new Date().toLocaleTimeString()
 };
 
 const content = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const content = (state = initialState, action) => {
 		case actions.content.setGreeting:
 			return Object.assign({}, state, {
 				greeting: action.payload.greeting
+			});
+
+		case actions.content.setTime:
+			return Object.assign({}, state, {
+				time: action.payload.time
 			});
 
 		default:
