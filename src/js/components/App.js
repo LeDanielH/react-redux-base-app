@@ -6,25 +6,19 @@ import actionCreators from '../actions/content';
 import Timer from './Timer';
 import '../../sass/project/components/_app.scss';
 
-class App extends Component {
 
-	constructor() {
-		super();
-	}
-
-	render() {
-		const {setGreeting, greeting} = this.props;
-		return (
-			<div className={'app'}>
-				<button onClick={() => setGreeting('Hello asshole')}>
-					Change greeting
-				</button>
-				<p>{greeting}</p>
-				<Timer />
-			</div>
-		)
-	}
-}
+const App = (props) => {
+	const {setGreeting, greeting} = props;
+	return (
+		<div className={'app'}>
+			<button onClick={() => setGreeting('Hello asshole')}>
+				Change greeting
+			</button>
+			<p>{greeting}</p>
+			<Timer />
+		</div>
+	)
+};
 
 const mapStateToProps = state => {
 	return {
