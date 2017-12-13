@@ -10,7 +10,10 @@ class Timer extends Component {
 	componentDidMount() {
 		this.interval = setInterval(() => {
 			this.props.setTime(new Date().toLocaleTimeString())
-		}, 1000)
+		}, 1000);
+
+		// now I can manipulate DOM
+		this.timeInput.classList.add('input__time');
 	}
 
 	// intervals must always be stopped when component unmounted
@@ -25,7 +28,7 @@ class Timer extends Component {
 	render() {
 		const {time} = this.props;
 		return (
-			<input value={time} onChange={this.handleOnChange} />
+			<input ref={input => (this.timeInput = input)} value={time} onChange={this.handleOnChange} />
 		)
 	}
 }
