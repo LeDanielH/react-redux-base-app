@@ -8,10 +8,10 @@ import '../../sass/project/components/_form.scss';
 
 class Form extends Component {
 
-
 	getErrorMessage = value => {
-		const hasNumbers = /\d/.test(value);
-		const isTooShort = value.length < 3;
+		const valueCleaned = value.trim();
+		const hasNumbers = /\d/.test(valueCleaned);
+		const isTooShort = valueCleaned.length < 3;
 
 		switch (true) {
 			case hasNumbers:
@@ -32,7 +32,6 @@ class Form extends Component {
 		this.getErrorMessage(this.nameInput.value);
 	};
 
-
 	handleSubmit = event => {
 		event.preventDefault();
 		this.getErrorMessage(this.nameInput.value);
@@ -46,7 +45,7 @@ class Form extends Component {
 			<form ref={nameForm => this.nameForm = nameForm} onSubmit={this.handleSubmit}>
 				<label htmlFor="username">Name</label>
 				<input type="text" name="username" onChange={this.handleInputChange} ref={input => this.nameInput = input}/>
-				<div>{!this.props.formValid ? <p>{this.props.errorMessage}</p> : ''}</div>
+				<div>{!this.props.formValid ? <p>{this.props.errorMessage}</p> : null}</div>
 				<button type="submit" disabled={!this.props.formValid} >Submit</button>
 			</form>
 		)
