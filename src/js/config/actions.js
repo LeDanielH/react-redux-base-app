@@ -8,6 +8,11 @@ const actions = {
 	},
 	timer: {
 		setTime: 'SET_TIME'
+	},
+	company: {
+		loadDataSuccess: 'LOAD_DATA_SUCCESS',
+		loadDataFail: 'LOAD_DATA_FAIL',
+		setUserName: 'SET_USER_NAME'
 	}
 };
 
