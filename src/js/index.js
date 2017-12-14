@@ -5,8 +5,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 const thunkMiddleware = require('redux-thunk').default;
-import reducers from './reducers/content'
-
+import reducers from './reducers/index'
 import App from './components/App';
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
