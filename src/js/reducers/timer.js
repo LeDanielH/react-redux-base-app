@@ -1,15 +1,15 @@
 import actions from '../config/actions';
 
 const initialState = {
-	name: 'Asshole'
+	time: new Date().toLocaleTimeString()
 };
 
-const content = (state = initialState, action) => {
+const timer = (state = initialState, action) => {
 	switch (action.type) {
 
-		case actions.content.setName:
+		case actions.timer.setTime:
 			return Object.assign({}, state, {
-				name: action.payload.name
+				time: action.payload.time
 			});
 
 		default:
@@ -17,4 +17,4 @@ const content = (state = initialState, action) => {
 	}
 };
 
-export default content
+export default timer

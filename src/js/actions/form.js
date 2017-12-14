@@ -4,14 +4,8 @@ const _validateForm = formValid => {
 	return {
 		type: actions.form.validateForm,
 		payload: {
-			formValid
+			formValid: formValid
 		}
-	}
-};
-
-const validateForm = formValid => {
-	return (dispatch, getState) => {
-		dispatch(_validateForm(formValid))
 	}
 };
 
@@ -19,13 +13,19 @@ const _setErrorMessage = errorMessage => {
 	return {
 		type: actions.form.setErrorMessage,
 		payload: {
-			errorMessage
+			errorMessage: errorMessage
 		}
 	}
 };
 
+const validateForm = formValid => {
+	return (dispatch) => {
+		dispatch(_validateForm(formValid))
+	}
+};
+
 const setErrorMessage = errorMessage => {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		dispatch(_setErrorMessage(errorMessage))
 	}
 };
