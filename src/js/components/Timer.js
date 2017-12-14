@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import actionCreators from '../actions/content';
+import timerActionCreators from '../actions/timer';
 import '../../sass/project/components/_timer.scss';
 
 class Timer extends Component {
@@ -16,7 +16,6 @@ class Timer extends Component {
 		this.timeInput.classList.add('input__time');
 	}
 
-	// intervals must always be stopped when component unmounted
 	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
@@ -35,14 +34,14 @@ class Timer extends Component {
 
 const mapStateToProps = state => {
 	return {
-		time: state.time
+		time: state.timer.time
 	}
 };
 
 const mapDispatchToProps = dispatch => {
-	const contentActions = bindActionCreators(actionCreators, dispatch);
+	const timerActions = bindActionCreators(timerActionCreators, dispatch);
 	return {
-		setTime: contentActions.setTime
+		setTime: timerActions.setTime
 	}
 };
 
