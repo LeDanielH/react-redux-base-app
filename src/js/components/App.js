@@ -5,6 +5,7 @@ import Timer from './Timer';
 import Form from './Form';
 import CompanyForm from './CompanyForm';
 import '../../sass/project/components/_app.scss';
+import Toggle from './Toggle';
 
 const App = props => {
 	return (
@@ -16,6 +17,7 @@ const App = props => {
 			<div>
 				<p>{`${props.userName} works at ${props.companyName}`}</p>
 			</div>
+			<Toggle onToggle={on => console.log('toggle', on)} />
 		</div>
 	)
 };
