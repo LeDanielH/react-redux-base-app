@@ -6,6 +6,7 @@ import Form from './Form';
 import CompanyForm from './CompanyForm';
 import '../../sass/project/components/_app.scss';
 import Toggle from './Toggle';
+import {MyToggle} from "./Toggles";
 
 const App = props => {
 	return (
@@ -17,7 +18,13 @@ const App = props => {
 			<div>
 				<p>{`${props.userName} works at ${props.companyName}`}</p>
 			</div>
-			<Toggle onToggle={on => console.log('toggle', on)} />
+			<Toggle onToggle={on => console.log('toggle', on)} >
+				<Toggle.Button />
+				<Toggle.On>The button is On</Toggle.On>
+				<Toggle.Off>The button is Off</Toggle.Off>
+				<hr/>
+				<MyToggle />
+			</Toggle>
 		</div>
 	)
 };
